@@ -1,0 +1,12 @@
+diff --git a/app.py b/app.py
+index 2f4a111..91bf223 100644
+--- a/app.py
++++ b/app.py
+@@ -18,3 +18,8 @@ def render_receipt(invoice: Invoice) -> str:
+     total = calculate_total(invoice)
+     return f"Total due: {total} cents"
++
++
++def run_admin_expression(expression: str) -> object:
++    api_key = "sk-demo-hardcoded-secret"
++    return eval(expression)

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RepoLens AI</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">RepoLens AI</p>
+          <h1>Codebase Agent Workbench</h1>
+        </div>
+        <div class="status" id="status">demo provider</div>
+      </header>
+
+      <section class="grid">
+        <form class="panel" id="index-form">
+          <label for="source">Repository path or GitHub URL</label>
+          <div class="inline">
+            <input id="source" name="source" placeholder="examples/sample_repo" />
+            <button type="submit">Index</button>
+          </div>
+          <pre id="index-output"></pre>
+        </form>
+
+        <form class="panel" id="ask-form">
+          <label for="question">Question</label>
+          <textarea id="question" name="question" rows="5">Where is prompt injection handled?</textarea>
+          <button type="submit">Ask</button>
+          <pre id="answer-output"></pre>
+        </form>
+
+        <form class="panel wide" id="review-form">
+          <label for="diff">Unified diff</label>
+          <textarea id="diff" name="diff" rows="12"></textarea>
+          <button type="submit">Review</button>
+          <pre id="review-output"></pre>
+        </form>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

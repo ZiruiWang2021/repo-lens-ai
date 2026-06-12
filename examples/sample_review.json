@@ -1,0 +1,23 @@
+{
+  "summary": "Found 3 actionable finding(s). Overall risk is high.",
+  "risk_level": "high",
+  "findings": [
+    {
+      "severity": "high",
+      "category": "secret",
+      "title": "Possible hard-coded secret",
+      "path": "app.py"
+    },
+    {
+      "severity": "high",
+      "category": "security",
+      "title": "Dynamic code execution introduced",
+      "path": "app.py"
+    },
+    {
+      "severity": "medium",
+      "category": "testing",
+      "title": "Source changed without test coverage in this diff"
+    }
+  ]
+}
