@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any
+from typing import Annotated, Any
 
 from repolens import db
 from repolens.agent import RepoLensAgent
@@ -37,7 +37,9 @@ def typer_main() -> None:  # pragma: no cover - covered by argparse-compatible f
         print_json(ask_question(question, repo_id, limit))
 
     @app.command("review")
-    def review_command(diff: Path = typer.Option(..., "--diff", "-d", help="Unified diff file")) -> None:
+    def review_command(
+        diff: Annotated[Path, typer.Option("--diff", "-d", help="Unified diff file")],
+    ) -> None:
         print_json(review_diff(diff.read_text(encoding="utf-8")))
 
     @app.command("serve")

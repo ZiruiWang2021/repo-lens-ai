@@ -40,7 +40,7 @@ class RepoLensAgent:
         self.retriever = HybridRetriever(connection)
 
     @classmethod
-    def from_db_path(cls, db_path: str | Path, provider: LLMProvider | None = None) -> "RepoLensAgent":
+    def from_db_path(cls, db_path: str | Path, provider: LLMProvider | None = None) -> RepoLensAgent:
         return cls(db.connect(Path(db_path)), provider)
 
     def ask(self, question: str, repo_id: int | None = None, limit: int = 6) -> ChatAnswer:

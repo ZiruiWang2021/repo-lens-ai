@@ -7,7 +7,6 @@ from typing import Any
 
 from repolens.models import CodeChunk
 
-
 SCHEMA = """
 PRAGMA journal_mode=WAL;
 

@@ -7,6 +7,7 @@ import urllib.error
 import urllib.request
 from collections.abc import Iterable
 from dataclasses import dataclass
+from typing import Any, cast
 
 from repolens.config import Settings
 
@@ -110,7 +111,7 @@ def provider_from_settings(settings: Settings) -> LLMProvider:
     raise ProviderError(f"unsupported provider: {provider}")
 
 
-def post_json(url: str, payload: dict[str, object], headers: dict[str, str]) -> dict[str, object]:
+def post_json(url: str, payload: dict[str, object], headers: dict[str, str]) -> dict[str, Any]:
     request = urllib.request.Request(
         url,
         data=json.dumps(payload).encode("utf-8"),
@@ -119,7 +120,7 @@ def post_json(url: str, payload: dict[str, object], headers: dict[str, str]) -> 
     )
     try:
         with urllib.request.urlopen(request, timeout=60) as response:
-            return json.loads(response.read().decode("utf-8"))
+            return cast(dict[str, Any], json.loads(response.read().decode("utf-8")))
     except urllib.error.URLError as exc:
         raise ProviderError(f"provider request failed: {exc}") from exc
 

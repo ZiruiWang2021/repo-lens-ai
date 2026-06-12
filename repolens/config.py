@@ -17,7 +17,7 @@ class Settings:
     db_path: Path = Path(".repolens/repolens.sqlite3")
 
     @classmethod
-    def from_env(cls) -> "Settings":
+    def from_env(cls) -> Settings:
         return cls(
             llm_provider=os.getenv("LLM_PROVIDER", "demo").strip().lower(),
             openai_base_url=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/"),

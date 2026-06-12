@@ -1,6 +1,12 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
+
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 
 from repolens import db
 from repolens.agent import RepoLensAgent
@@ -8,48 +14,22 @@ from repolens.config import Settings
 from repolens.indexer import RepositoryIndexer
 from repolens.providers import provider_from_settings
 
-try:
-    from fastapi import FastAPI, HTTPException
-    from fastapi.responses import FileResponse
-    from fastapi.staticfiles import StaticFiles
-    from pydantic import BaseModel
-except ImportError as exc:  # pragma: no cover
-    FastAPI = None  # type: ignore[assignment]
-    HTTPException = None  # type: ignore[assignment]
-    FileResponse = None  # type: ignore[assignment]
-    StaticFiles = None  # type: ignore[assignment]
-    BaseModel = object  # type: ignore[assignment,misc]
-    FASTAPI_IMPORT_ERROR = exc
-else:
-    FASTAPI_IMPORT_ERROR = None
+
+class IndexRequest(BaseModel):
+    source: str
 
 
-if BaseModel is object:  # pragma: no cover
-    class IndexRequest:  # type: ignore[no-redef]
-        pass
-
-    class ChatRequest:  # type: ignore[no-redef]
-        pass
-
-    class ReviewRequest:  # type: ignore[no-redef]
-        pass
-else:
-    class IndexRequest(BaseModel):
-        source: str
-
-    class ChatRequest(BaseModel):
-        question: str
-        repo_id: int | None = None
-        limit: int = 6
-
-    class ReviewRequest(BaseModel):
-        diff: str
+class ChatRequest(BaseModel):
+    question: str
+    repo_id: int | None = None
+    limit: int = 6
 
 
-def create_app(settings: Settings | None = None):
-    if FastAPI is None:  # pragma: no cover
-        raise RuntimeError("FastAPI is not installed. Run: pip install -e .") from FASTAPI_IMPORT_ERROR
+class ReviewRequest(BaseModel):
+    diff: str
 
+
+def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or Settings.from_env()
     app = FastAPI(
         title="RepoLens AI",
@@ -59,7 +39,7 @@ def create_app(settings: Settings | None = None):
     web_dir = Path(__file__).parent / "web"
 
     @app.post("/api/repos/index")
-    def index_repo(request: IndexRequest) -> dict[str, object]:
+    def index_repo(request: IndexRequest) -> dict[str, Any]:
         try:
             summary = RepositoryIndexer(settings.db_path).index(request.source)
             return summary.__dict__
@@ -67,7 +47,7 @@ def create_app(settings: Settings | None = None):
             raise HTTPException(status_code=400, detail=str(exc)) from exc
 
     @app.post("/api/chat")
-    def chat(request: ChatRequest) -> dict[str, object]:
+    def chat(request: ChatRequest) -> dict[str, Any]:
         connection = db.connect(settings.db_path)
         try:
             agent = RepoLensAgent(connection, provider_from_settings(settings))
@@ -76,7 +56,7 @@ def create_app(settings: Settings | None = None):
             connection.close()
 
     @app.post("/api/review")
-    def review(request: ReviewRequest) -> dict[str, object]:
+    def review(request: ReviewRequest) -> dict[str, Any]:
         connection = db.connect(settings.db_path)
         try:
             agent = RepoLensAgent(connection, provider_from_settings(settings))
@@ -85,7 +65,7 @@ def create_app(settings: Settings | None = None):
             connection.close()
 
     @app.get("/api/repos/{repo_id}/map")
-    def get_repo_map(repo_id: int) -> dict[str, object]:
+    def get_repo_map(repo_id: int) -> dict[str, Any]:
         connection = db.connect(settings.db_path)
         try:
             try:
@@ -96,11 +76,11 @@ def create_app(settings: Settings | None = None):
             connection.close()
 
     @app.get("/")
-    def root():
+    def root() -> FileResponse:
         return FileResponse(web_dir / "index.html")
 
     app.mount("/static", StaticFiles(directory=web_dir), name="static")
     return app
 
 
-app = create_app() if FastAPI is not None else None
+app = create_app()
