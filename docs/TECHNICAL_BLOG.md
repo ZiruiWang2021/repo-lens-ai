@@ -129,9 +129,6 @@ The core lesson is that useful AI agents are mostly software engineering. The LL
 
 I also learned that good AI projects for hiring should be legible at two levels:
 
-- A recruiter should understand the product value in the first minute.
-- A technical interviewer should be able to inspect the architecture, tests, tradeoffs, and failure modes.
-
 RepoLens AI was built with both audiences in mind.
 
 ## GitHub Link
