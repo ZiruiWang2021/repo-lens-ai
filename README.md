@@ -8,8 +8,6 @@ RepoLens AI is an open-source codebase agent for GitHub and local repositories. 
 
 中文简介：RepoLens AI 是一个面向 GitHub 和本地仓库的代码库智能体，可以索引代码、生成代码地图、带引用回答代码问题，并对 PR diff 输出结构化审查意见。
 
-It is intentionally built as a resume-grade AI engineering project: easy for recruiters to understand, but deep enough for technical interviewers to inspect the architecture, tests, tradeoffs, and security posture.
-
 ![RepoLens AI workbench](docs/assets/repolens-workbench.svg)
 
 ## What It Demonstrates
