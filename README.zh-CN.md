@@ -6,7 +6,6 @@
 
 RepoLens AI 是一个面向 GitHub 和本地仓库的开源代码库智能体。它可以索引源码文件、构建可检索的代码地图、基于引用回答代码问题、审查 pull request diff，并通过 MCP 工具接入 AI 编程助手。
 
-这个项目按“简历级 AI 工程项目”设计：HR 可以快速理解项目价值，技术面试官也可以继续追问架构、检索、Agent 工具调用、安全边界、测试和工程取舍。
 
 ![RepoLens AI 工作台](docs/assets/repolens-workbench.svg)
 
@@ -305,7 +304,7 @@ GitHub Actions 会在 push 到 `main` 和 pull request 时运行同样检查：
 
 配套中文技术博客：[构建 RepoLens AI：一个用证据回答问题的代码库智能体](docs/TECHNICAL_BLOG.zh-CN.md)。英文版：[Building RepoLens AI: A Codebase Agent That Answers With Evidence](docs/TECHNICAL_BLOG.md)。
 
-## 简历 bullet
+## 要点 bullet
 
 - 构建了一个 AI 代码库智能体，支持 SQLite 本地索引、混合检索、带引用问答和结构化 PR diff review。
 - 实现 OpenAI-compatible API、Ollama 和离线 demo provider，保证无 API Key 也能测试和演示。
