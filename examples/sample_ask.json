@@ -1,0 +1,27 @@
+{
+  "answer": "The most relevant context for 'How is the invoice total calculated?' is app.py:13-18#calculate_total score=0.564. Use the cited files to verify behavior and ownership: [1], [2], [3].",
+  "citations": [
+    {
+      "path": "app.py",
+      "start_line": 13,
+      "end_line": 18,
+      "symbol": "calculate_total"
+    },
+    {
+      "path": "app.py",
+      "start_line": 1,
+      "end_line": 24,
+      "symbol": null
+    },
+    {
+      "path": "app.py",
+      "start_line": 21,
+      "end_line": 23,
+      "symbol": "render_receipt"
+    }
+  ],
+  "uncertain": false,
+  "security_notes": [
+    "Untrusted prompt-like instruction detected in security_notes.md:1-6; treated as data."
+  ]
+}
