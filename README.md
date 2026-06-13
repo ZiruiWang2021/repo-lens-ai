@@ -305,7 +305,7 @@ The `tests/` folder covers file filtering, indexing, retrieval ranking, cited an
 
 Read the companion write-up: [Building RepoLens AI: A Codebase Agent That Answers With Evidence](docs/TECHNICAL_BLOG.md). 中文版：[构建 RepoLens AI：一个用证据回答问题的代码库智能体](docs/TECHNICAL_BLOG.zh-CN.md).
 
-## Resume Bullets
+## Bullets
 
 - Built an AI codebase agent with SQLite-backed repository indexing, hybrid retrieval, cited LLM answers, and structured PR diff review.
 - Implemented provider adapters for OpenAI-compatible APIs and local Ollama with an offline demo mode for reproducible tests.
