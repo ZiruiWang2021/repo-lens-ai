@@ -11,32 +11,35 @@
       <header class="topbar">
         <div>
           <p class="eyebrow">RepoLens AI</p>
-          <h1>Codebase Agent Workbench</h1>
+          <h1 data-i18n="title">Codebase Agent Workbench</h1>
         </div>
-        <div class="status" id="status">demo provider</div>
+        <div class="top-actions">
+          <button class="ghost-button" id="lang-toggle" type="button">中文</button>
+          <div class="status" id="status" data-i18n="status">demo provider</div>
+        </div>
       </header>
 
       <section class="grid">
         <form class="panel" id="index-form">
-          <label for="source">Repository path or GitHub URL</label>
+          <label for="source" data-i18n="sourceLabel">Repository path or GitHub URL</label>
           <div class="inline">
             <input id="source" name="source" placeholder="examples/sample_repo" />
-            <button type="submit">Index</button>
+            <button type="submit" data-i18n="indexButton">Index</button>
           </div>
           <pre id="index-output"></pre>
         </form>
 
         <form class="panel" id="ask-form">
-          <label for="question">Question</label>
+          <label for="question" data-i18n="questionLabel">Question</label>
           <textarea id="question" name="question" rows="5">Where is prompt injection handled?</textarea>
-          <button type="submit">Ask</button>
+          <button type="submit" data-i18n="askButton">Ask</button>
           <pre id="answer-output"></pre>
         </form>
 
         <form class="panel wide" id="review-form">
-          <label for="diff">Unified diff</label>
+          <label for="diff" data-i18n="diffLabel">Unified diff</label>
           <textarea id="diff" name="diff" rows="12"></textarea>
-          <button type="submit">Review</button>
+          <button type="submit" data-i18n="reviewButton">Review</button>
           <pre id="review-output"></pre>
         </form>
       </section>

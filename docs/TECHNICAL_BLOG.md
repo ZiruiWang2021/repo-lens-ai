@@ -2,6 +2,8 @@
 
 GitHub: https://github.com/ZiruiWang2021/repo-lens-ai
 
+Languages: [English](TECHNICAL_BLOG.md) | [简体中文](TECHNICAL_BLOG.zh-CN.md)
+
 ## Problem
 
 Large codebases are hard to understand quickly. A new engineer often needs to answer questions like:

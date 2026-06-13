@@ -2,7 +2,11 @@
 
 [![CI](https://github.com/ZiruiWang2021/repo-lens-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/ZiruiWang2021/repo-lens-ai/actions/workflows/ci.yml)
 
+Languages: [English](README.md) | [简体中文](README.zh-CN.md)
+
 RepoLens AI is an open-source codebase agent for GitHub and local repositories. It indexes source files, builds a searchable code map, answers code questions with citations, reviews pull request diffs, and exposes MCP tools for AI coding assistants.
+
+中文简介：RepoLens AI 是一个面向 GitHub 和本地仓库的代码库智能体，可以索引代码、生成代码地图、带引用回答代码问题，并对 PR diff 输出结构化审查意见。
 
 It is intentionally built as a resume-grade AI engineering project: easy for recruiters to understand, but deep enough for technical interviewers to inspect the architecture, tests, tradeoffs, and security posture.
 
@@ -301,7 +305,7 @@ The `tests/` folder covers file filtering, indexing, retrieval ranking, cited an
 
 ## Technical Blog
 
-Read the companion write-up: [Building RepoLens AI: A Codebase Agent That Answers With Evidence](docs/TECHNICAL_BLOG.md).
+Read the companion write-up: [Building RepoLens AI: A Codebase Agent That Answers With Evidence](docs/TECHNICAL_BLOG.md). 中文版：[构建 RepoLens AI：一个用证据回答问题的代码库智能体](docs/TECHNICAL_BLOG.zh-CN.md).
 
 ## Resume Bullets
 

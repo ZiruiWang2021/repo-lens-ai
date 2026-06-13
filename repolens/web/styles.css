@@ -39,6 +39,12 @@ body {
   border-bottom: 1px solid var(--line);
 }
 
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .eyebrow {
   margin: 0 0 6px;
   color: var(--accent);
@@ -61,6 +67,21 @@ h1 {
   color: var(--muted);
   background: rgba(255, 255, 255, 0.72);
   white-space: nowrap;
+}
+
+.ghost-button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: var(--accent);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ghost-button:hover {
+  color: #fff;
+  background: var(--accent);
 }
 
 .grid {
@@ -151,6 +172,10 @@ pre {
   .topbar {
     display: grid;
     align-items: start;
+  }
+
+  .top-actions {
+    justify-content: start;
   }
 
   h1 {
