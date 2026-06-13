@@ -304,7 +304,7 @@ GitHub Actions 会在 push 到 `main` 和 pull request 时运行同样检查：
 
 配套中文技术博客：[构建 RepoLens AI：一个用证据回答问题的代码库智能体](docs/TECHNICAL_BLOG.zh-CN.md)。英文版：[Building RepoLens AI: A Codebase Agent That Answers With Evidence](docs/TECHNICAL_BLOG.md)。
 
-## 要点 bullet
+## 要点 
 
 - 构建了一个 AI 代码库智能体，支持 SQLite 本地索引、混合检索、带引用问答和结构化 PR diff review。
 - 实现 OpenAI-compatible API、Ollama 和离线 demo provider，保证无 API Key 也能测试和演示。
